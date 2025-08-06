@@ -7,6 +7,7 @@ import {
   getAnalytics,
 } from './services/api';
 import './styles.css';
+import ProductList from './ProductList'; // <-- Import the new component
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -80,16 +81,7 @@ function App() {
         <button onClick={handleAddProduct}>Add Product</button>
       </section>
 
-      <section>
-        <h2>Product List</h2>
-        <ul>
-          {products.map((p) => (
-            <li key={p.id}>
-              {p.name} - Qty: {p.quantity} @ €{p.price.toFixed(2)}
-            </li>
-          ))}
-        </ul>
-      </section>
+      <ProductList products={products} /> {/* <-- Use the component */}
 
       <section>
         <h2>Record Sale</h2>
